@@ -1,0 +1,193 @@
+:root {
+            --primary-gold: #B88940; /* Color dorado para títulos principales */
+            --text-dark: #333;       /* Color general del texto */
+            --stripe-orange: #FFBD59; /* Color de las rayas laterales */
+        }
+
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Fuente principal para el cuerpo */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: center;     /* Centra el contenido verticalmente */
+            min-height: 100vh;       /* Ocupa al menos el 100% de la altura de la ventana */
+            background-color: #fff;  /* Fondo blanco como en la imagen de referencia */
+            color: var(--text-dark); /* Color de texto por defecto */
+        }
+
+        /* Contenedor principal del diseño */
+        .container {
+            width: 100%;
+            max-width: 800px; /* Ancho máximo similar al de la imagen */
+            padding: 20px;
+            box-sizing: border-box; /* Incluye padding en el ancho total */
+            text-align: center;      /* Centra el texto */
+        }
+
+        /* Sección del encabezado (Venta) */
+        .sale-header {
+            margin-bottom: 40px; /* Espacio debajo del encabezado */
+        }
+
+        .sale-header .small-text {
+            font-size: 1em;
+            text-transform: uppercase; /* Texto en mayúsculas */
+            letter-spacing: 2px;     /* Espaciado entre letras */
+            margin-bottom: 5px;
+        }
+
+        .sale-header h1 {
+            font-family: 'Oswald', sans-serif; /* Fuente más robusta para el título "SALE" */
+            font-size: 4em; /* Tamaño grande para "SALE" */
+            color: var(--primary-gold); /* Color dorado */
+            margin: 0;
+            line-height: 1; /* Altura de línea compacta */
+            font-weight: 700; /* Negrita */
+        }
+
+        .sale-header .discount {
+            font-size: 1.8em; /* Tamaño para el descuento */
+            font-weight: 700;
+            margin: 10px 0 20px;
+        }
+
+        .sale-header .slogan {
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        /* Sección de Productos - Contenedor principal */
+        .products-section {
+            position: relative; /* FUNDAMENTAL: Contexo para posicionamiento absoluto de las rayas */
+            display: flex;
+            justify-content: center; /* Centra la cuadrícula de productos */
+            align-items: center;     /* Centra verticalmente los elementos internos */
+            margin-bottom: 40px;
+            /* Altura mínima para asegurar que las rayas tengan espacio, ajustable si el contenido varía */
+            min-height: 300px;
+        }
+
+        /* Contenedor de las rayas de fondo */
+        .background-stripes {
+            position: absolute; /* Posiciona las rayas sobre la sección .products-section */
+            top: 0;
+            right: 0 ;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between; /* Empuja los grupos de rayas a los extremos */
+            align-items: center;
+            z-index: 0; /* Asegura que las rayas estén detrás de las imágenes */
+            padding: 0 50px; /* Padding para que las rayas no queden pegadas a los bordes */
+        }
+
+        /* Grupo de rayas (izquierdo o derecho) */
+        .stripe-group {
+            display: flex;
+            flex-direction: column; /* Las rayas se apilan verticalmente */
+            gap: 30px; /* Espacio entre cada raya */
+        }
+
+        /* Raya individual */
+        .stripe-group .stripe {
+            width: 390px; /* Ancho de cada raya */
+            height: 30px; /* Alto de cada raya */
+            background-color: var(--stripe-orange); /* Color de las rayas */
+            margin-right: 100px;
+        }
+
+        /* Cuadrícula de productos (imágenes) */
+        .product-grid {
+            position: relative; /* FUNDAMENTAL: Necesario para que esté por encima de las rayas */
+            z-index: 1; /* Asegura que la cuadrícula de productos esté por encima de las rayas */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+            gap: 20px; /* Espacio entre los productos */
+            background-color: transparent; /* Asegura que no tape las rayas si tiene fondo */
+        }
+
+        /* Elemento de producto individual */
+        .product-item {
+            text-align: center;
+        }
+
+        .product-item img {
+            max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            display: block; /* Elimina espacio extra debajo de la imagen */
+            margin: 0 auto 10px; /* Centra la imagen y añade margen inferior */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil como en la imagen */
+            border-radius: 4px; /* Ligeramente redondeado para las imágenes */
+        }
+
+        .product-item .product-info {
+            font-size: 1em;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Sección del pie de página (Marca) */
+        .brand-footer {
+            padding-top: 20px; /* Espacio encima del pie de página */
+        }
+
+        .brand-footer h2 {
+            font-family: 'Oswald', sans-serif; /* Misma fuente que el título "SALE" */
+            font-size: 2.5em; /* Tamaño para "YOUR FASHION" */
+            color: var(--primary-gold);
+            margin: 0;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .brand-footer .tagline {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* Responsividad - Ajustes para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .sale-header h1 {
+                font-size: 3em; /* Reduce el tamaño del título principal */
+            }
+
+            .sale-header .discount {
+                font-size: 1.5em; /* Reduce el tamaño del descuento */
+            }
+
+            .products-section {
+                flex-direction: column; /* Apila las rayas y la cuadrícula en pantallas pequeñas */
+                min-height: auto; /* Permite que la altura se ajuste al contenido */
+                gap: 20px; /* Espacio si se apilan */
+            }
+
+            .background-stripes {
+                position: relative; /* Permite que las rayas fluyan normalmente */
+                flex-direction: row; /* Las rayas se ponen en fila horizontal */
+                width: 100%;
+                justify-content: center; /* Centra los grupos de rayas */
+                padding: 0; /* Elimina el padding horizontal */
+                gap: 40px; /* Espacio entre los grupos de rayas */
+                margin-bottom: 20px; /* Espacio debajo de las rayas apiladas */
+            }
+
+            .stripe-group {
+                flex-direction: row; /* Las rayas individuales se ponen en fila */
+                gap: 6px; /* Menos espacio entre rayas individuales */
+            }
+
+            .stripe-group .stripe {
+                width: 40px; /* Ancho más pequeño para las rayas en móvil */
+                height: 6px; /* Alto más pequeño para las rayas en móvil */
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+            }
+
+            .brand-footer h2 {
+                font-size: 2em; /* Reduce el tamaño del pie de página */
+            }
+        }
